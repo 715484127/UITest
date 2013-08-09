@@ -19,10 +19,25 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor blueColor];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 250, 40)];
+    [label setText:@"wangyuepengTest"];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setTextColor:[UIColor darkGrayColor]];
+    UIButton *button = [[UIButton alloc] initWithFrame:CGRectMake(150, 100, 60, 40)];
+    [button setTitle:@"tijiao" forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor greenColor]];
+    [button addTarget:self action:@selector (buttonAction) forControlEvents:UIControlEventTouchDown];
+    [[self window] addSubview:label];
+    [[self window] addSubview:button];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)buttonAction
+{
+    NSLog(@"*************");
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
